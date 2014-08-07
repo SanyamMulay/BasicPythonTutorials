@@ -1,0 +1,800 @@
+\documentclass[11pt]{beamer}
+
+% list of packages used
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+
+% Author details
+\author{Sanyam, Nikhil @EduTechLabs}
+\title{Pyhon Basics}
+
+% configs
+
+%%set theme 
+\usetheme{Luebeck}
+
+%%configure listings package for python
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{8pt} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{8pt}  % for normal
+
+%custom colours
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+%configuring listings package to highlight python syntax
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self,plot,run},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+%frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+%%%%%%%%%%%% begin writing the actual document %%%%%%%%%%%%%%%%%
+\begin{document}
+
+%get the title page
+\frame{\maketitle}
+% welcome page 
+\begin{frame}{Welcome to the course}
+	\begin{center}
+	 Welcome to \emph{\color{deepblue}EduTechLab's} basic Python Course.
+	\end{center}
+\end{frame}
+
+%%%%%%%%%%%%%%% about python
+
+% preparing the code
+\defverbatim[colored]\pycode{%
+\begin{python}
+class MyClass(Yourclass):
+    def __init__(self, my, yours):
+        bla = '5 1 2 3 4'
+        print bla
+\end{python}
+}
+% preparing the slide
+\begin{frame}[containsverbatim]{The Python Interpreter}
+	\begin{flushleft}
+	\begin{enumerate}
+		\item{Invoking the interpreter:} \\
+		\pythoninline{python}
+		\item{We like IPython}\\
+		\pythoninline{ipython}
+		\item{here is some more python code} \\
+		\pycode
+		\item{running a python script} \\
+		\begin{python}
+		run HelloWorld.py
+		\end{python}
+	\end{enumerate}
+	\end{flushleft}
+\end{frame}
+
+
+
+\begin{frame}[containsverbatim]{Defining python classes}
+\begin{python}
+class MyClass(Yourclass):
+    def __init__(self, my, yours):
+        bla bla bla...
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{An Informal Introduction to Python}
+\begin{python}
+Comments in python
+# this is the first comment
+spam = 1  # and this is the second comment
+          # ... and now a third!
+text = "# This is not a comment because it's inside quotes."
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+Numbers
+>>> 2 + 2
+4
+>>> 50 - 5*6
+20
+>>> (50 - 5.0*6) / 4
+5.0
+>>> 8 / 5.0
+1.6
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> 17 / 3  # int / int -> int
+5
+>>> 17 / 3.0  # int / float -> float
+5.666666666666667
+>>> 17 // 3.0  # explicit floor division discards the fractional part
+5.0
+>>> 17 % 3  # the % operator returns the remainder of the division
+2
+>>> 5 * 3 + 2  # result * divisor + remainder
+17
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> 5 ** 2  # 5 squared
+25
+>>> 2 ** 7  # 2 to the power of 7
+128
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> tax = 12.5 / 100
+>>> price = 100.50
+>>> price * tax
+12.5625
+>>> price + _
+113.0625
+>>> round(_, 2)
+113.06
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+Strings
+>>> 'spam eggs'  # single quotes
+'spam eggs'
+>>> 'doesn\'t'  # use \' to escape the single quote...
+"doesn't"
+>>> "doesn't"  # ...or use double quotes instead
+"doesn't"
+>>> '"Yes," he said.'
+'"Yes," he said.'
+>>> "\"Yes,\" he said."
+'"Yes," he said.'
+>>> '"Isn\'t," she said.'
+'"Isn\'t," she said.
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> print 'C:\some\name'  # here \n means newline!
+C:\some
+ame
+>>> print r'C:\some\name'  # note the r before the quote
+C:\some\name
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> # 3 times 'un', followed by 'ium'
+>>> 3 * 'un' + 'ium'
+'unununium'
+>>> 'Py' 'thon'
+'Python'
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> word = 'Python'
+>>> word[0]  # character in position 0
+'P'
+>>> word[5]  # character in position 5
+'n'
+>>> word[-1]  # last character
+'n'
+>>> word[-2]  # second-last character
+'o'
+>>> word[-6]
+'P'
+>>> word[0:2]  # characters from position 0 (included) to 2 (excluded)
+'Py'
+>>> word[2:5]  # characters from position 2 (included) to 5 (excluded)
+'tho'
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+Lists
+>>> squares = [1, 4, 9, 16, 25]
+>>> squares
+[1, 4, 9, 16, 25]
+>>> squares[0]  # indexing returns the item
+1
+>>> squares[-1]
+25
+>>> squares[-3:]  # slicing returns a new list
+[9, 16, 25]
+>>> squares[:]
+[1, 4, 9, 16, 25]
+>>> squares + [36, 49, 64, 81, 100]
+[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> cubes = [1, 8, 27, 65, 125]  # something's wrong here
+>>> 4 ** 3  # the cube of 4 is 64, not 65!
+64
+>>> cubes[3] = 64  # replace the wrong value
+>>> cubes
+[1, 8, 27, 64, 125]
+>>> cubes.append(216)  # add the cube of 6
+>>> cubes.append(7 ** 3)  # and the cube of 7
+>>> cubes
+[1, 8, 27, 64, 125, 216, 343]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> letters
+['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> # replace some values
+>>> letters[2:5] = ['C', 'D', 'E']
+>>> letters
+['a', 'b', 'C', 'D', 'E', 'f', 'g']
+>>> # now remove them
+>>> letters[2:5] = []
+>>> letters
+['a', 'b', 'f', 'g']
+>>> # clear the list by replacing all the elements with an empty list
+>>> letters[:] = []
+>>> letters
+[]
+\end{python}
+\end{frame}
+>>> letters = ['a', 'b', 'c', 'd']
+>>> len(letters)
+4
+
+\begin{frame}[containsverbatim]{Using Python as a Calculator}
+\begin{python}
+>>> a = ['a', 'b', 'c']
+>>> n = [1, 2, 3]
+>>> x = [a, n]
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+>>> x[0]
+['a', 'b', 'c']
+>>> x[0][1]
+'b'
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{First Steps Towards Programming}
+\begin{python}
+>>> # Fibonacci series:
+... # the sum of two elements defines the next
+... a, b = 0, 1
+>>> while b < 10:
+...    print b
+...    a, b = b, a+b
+...
+1
+1
+2
+3
+5
+8
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{First Steps Towards Programming}
+\begin{python}
+>>> a, b = 0, 1
+>>> while b < 1000:
+...    print b,
+...    a, b = b, a+b
+...
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{More Control Flow Tools}
+if Statements
+\begin{python}
+>>> x = int(raw_input("Please enter an integer: "))
+Please enter an integer: 42
+>>> if x < 0:
+...    x = 0
+...    print 'Negative changed to zero'
+... elif x == 0:
+...    print 'Zero'
+... elif x == 1:
+...    print 'Single'
+... else:
+...    print 'More'
+...
+More
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{More Control Flow Tools}
+for Statements
+\begin{python}
+>>> # Measure some strings:
+... words = ['cat', 'window', 'defenestrate']
+>>> for w in words:
+...    print w, len(w)
+...
+cat 3
+window 6
+defenestrate 12
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{More Control Flow Tools}
+The range() Function
+\begin{python}
+>>> range(10)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>> range(5, 10)
+[5, 6, 7, 8, 9]
+>>> range(0, 10, 3)
+[0, 3, 6, 9]
+>>> range(-10, -100, -30)
+[-10, -40, -70]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{More Control Flow Tools}
+\begin{python}
+>>> a = ['Mary', 'had', 'a', 'little', 'lamb']
+>>> for i in range(len(a)):
+...    print i, a[i]
+...
+0 Mary
+1 had
+2 a
+3 little
+4 lamb
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{More Control Flow Tools}
+break and continue Statements, and else Clauses on Loops
+\begin{python}
+>>> for n in range(2, 10):
+...    for x in range(2, n):
+...        if n % x == 0:
+...            print n, 'equals', x, '*', n/x
+...            break
+...    else:
+...        # loop fell through without finding a factor
+...        print n, 'is a prime number'
+...
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Defining Functions}
+\begin{python}
+>>> def fib(n):    # write Fibonacci series up to n
+...    """Print a Fibonacci series up to n."""
+...    a, b = 0, 1
+...    while a < n:
+...        print a,
+...        a, b = b, a+b
+...
+>>> # Now call the function we just defined:
+... fib(2000)
+0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597
+
+>>> fib
+<function fib at 10042ed0>
+>>> f = fib
+>>> f(100)
+0 1 1 2 3 5 8 13 21 34 55 89
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+More on Lists
+\begin{python}
+>>> a = [66.25, 333, 333, 1, 1234.5]
+>>> print a.count(333), a.count(66.25), a.count('x')
+2 1 0
+>>> a.insert(2, -1)
+>>> a.append(333)
+>>> a
+[66.25, 333, -1, 333, 1, 1234.5, 333]
+>>> a.index(333)
+1
+>>> a.remove(333)
+>>> a
+[66.25, -1, 333, 1, 1234.5, 333]
+>>> a.reverse()
+>>> a
+[333, 1234.5, 1, 333, -1, 66.25]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+\begin{python}
+>>> a.sort()
+>>> a
+[-1, 1, 66.25, 333, 333, 1234.5]
+>>> a.pop()
+1234.5
+>>> a
+[-1, 1, 66.25, 333, 333]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+Using Lists as Stacks
+\begin{python}
+>>> stack = [3, 4, 5]
+>>> stack.append(6)
+>>> stack.append(7)
+>>> stack
+[3, 4, 5, 6, 7]
+>>> stack.pop()
+7
+>>> stack
+[3, 4, 5, 6]
+>>> stack.pop()
+6
+>>> stack.pop()
+5
+>>> stack
+[3, 4]
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+Using Lists as Queues
+\begin{python}
+>>> from collections import deque
+>>> queue = deque(["Eric", "John", "Michael"])
+>>> queue.append("Terry")           # Terry arrives
+>>> queue.append("Graham")          # Graham arrives
+>>> queue.popleft()                 # The first to arrive now leaves
+'Eric'
+>>> queue.popleft()                 # The second to arrive now leaves
+'John'
+>>> queue                      # Remaining queue in order of arrival
+deque(['Michael', 'Terry', 'Graham'])
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+The del statement
+\begin{python}
+>>> a = [-1, 1, 66.25, 333, 333, 1234.5]
+>>> del a[0]
+>>> a
+[1, 66.25, 333, 333, 1234.5]
+>>> del a[2:4]
+>>> a
+[1, 66.25, 1234.5]
+>>> del a[:]
+>>> a
+[]
+>>> del a
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+Tuples and Sequences
+\begin{python}
+>>> t = 12345, 54321, 'hello!'
+>>> t[0]
+12345
+>>> t
+(12345, 54321, 'hello!')
+>>> # Tuples may be nested:
+... u = t, (1, 2, 3, 4, 5)
+>>> u
+((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))
+
+>>> #tuples can contain mutable objects:
+... v = ([1, 2, 3], [3, 2, 1])
+>>> v
+([1, 2, 3], [3, 2, 1])
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+Sets
+\begin{python}
+>>> basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+>>> fruit = set(basket)       # create a set without duplicates
+>>> fruit
+set(['orange', 'pear', 'apple', 'banana'])
+>>> 'orange' in fruit                 # fast membership testing
+True
+>>> 'crabgrass' in fruit
+False
+
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Data Structures}
+Dictionaries
+\begin{python}
+>>> tel = {'jack': 4098, 'sape': 4139}
+>>> tel['guido'] = 4127
+>>> tel
+{'sape': 4139, 'guido': 4127, 'jack': 4098}
+>>> tel['jack']
+4098
+>>> del tel['sape']
+>>> tel['irv'] = 4127
+>>> tel
+{'guido': 4127, 'irv': 4127, 'jack': 4098}
+>>> tel.keys()
+['guido', 'irv', 'jack']
+>>> 'guido' in tel
+True
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Looping Techniques}
+\begin{python}
+>>> for i, v in enumerate(['tic', 'tac', 'toe']):
+...    print i, v
+...
+0 tic
+1 tac
+2 toe
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Looping Techniques}
+\begin{python}
+>>> for i in reversed(xrange(1,10,2)):
+...    print i
+...
+9
+7
+5
+3
+1
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Looping Techniques}
+\begin{python}
+>>>
+>>> basket = ['apple', 'orange', 'apple', 'pear', 'orange', 'banana']
+>>> for f in sorted(set(basket)):
+...    print f
+...
+apple
+banana
+orange
+pear
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Looping Techniques}
+\begin{python}
+>>> knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+>>> for k, v in knights.iteritems():
+...    print k, v
+...
+gallahad the pure
+robin the brave
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Input and Output}
+Fancier Output Formatting
+\begin{python}
+>>> s = 'Hello, world.'
+>>> str(s)
+'Hello, world.'
+>>> repr(s)
+"'Hello, world.'"
+>>> str(1.0/7.0)
+'0.142857142857'
+>>> repr(1.0/7.0)
+'0.14285714285714285'
+>>> x = 10 * 3.25
+>>> y = 200 * 200
+>>> s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
+>>> print s
+The value of x is 32.5, and y is 40000...
+
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Reading and Writing Files}
+\begin{python}
+>>> f = open('workfile', 'w')
+>>> print f
+<open file 'workfile', mode 'w' at 80a0960>
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Reading and Writing Files}
+Methods of File Objects
+\begin{python}
+>>> f.read()
+'This is the entire file.\n'
+>>> f.read()
+''
+>>> f.readline()
+'This is the first line of the file.\n'
+>>> f.readline()
+'Second line of the file\n'
+>>> f.readline()
+''
+>>> for line in f:
+        print line,
+
+This is the first line of the file.
+Second line of the file
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Reading and Writing Files}
+\begin{python}
+>>> f.write('This is a test\n')
+>>> value = ('the answer', 42)
+>>> s = str(value)
+>>> f.write(s)
+>>> f = open('workfile', 'r+')
+>>> f.write('0123456789abcdef')
+>>> f.seek(5)     # Go to the 6th byte in the file
+>>> f.read(1)
+'5'
+>>> f.seek(-3, 2) # Go to the 3rd byte before the end
+>>> f.read(1)
+'d'
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Reading and Writing Files}
+\begin{python}
+>>> f.close()
+>>> f.read()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+ValueError: I/O operation on closed file
+>>> with open('workfile', 'r') as f:
+...    read_data = f.read()
+>>> f.closed
+True
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Saving structured data with json}
+\begin{python}
+>>> json.dumps([1, 'simple', 'list'])
+'[1, "simple", "list"]'
+json.dump(x, f)
+x = json.load(f)
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Errors and Exceptions}
+Syntax Errors
+\begin{python}
+>>> while True print 'Hello world'
+  File "<stdin>", line 1, in ?
+    while True print 'Hello world'
+                   ^
+SyntaxError: invalid syntax
+\end{python}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Errors and Exceptions}
+Exceptions
+\begin{python}
+>>> 10 * (1/0)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+ZeroDivisionError: integer division or modulo by zero
+>>> 4 + spam*3
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+NameError: name 'spam' is not defined
+>>> '2' + 2
+Traceback (most recent call last):
+  File "<stdin>", line 1, in ?
+TypeError: cannot concatenate 'str' and 'int' objects
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Classes}
+Class Definition Syntax
+class ClassName:
+    <statement-1>
+    .
+    .
+    .
+    <statement-N>
+\end{python}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Classes}
+Class Objects
+\begin{python}
+class MyClass:
+    """A simple example class"""
+    i = 12345
+    def f(self):
+        return 'hello world'
+
+x = MyClass()
+
+\end{python}
+\end{frame}
+
+\end{document}
