@@ -656,27 +656,28 @@ robin the brave
 \end{python}
 \end{frame}
 
-\begin{frame}[containsverbatim]{Input and Output}
-Fancier Output Formatting
-\begin{python}
->>> s = 'Hello, world.'
->>> str(s)
-'Hello, world.'
->>> repr(s)
-"'Hello, world.'"
->>> str(1.0/7.0)
-'0.142857142857'
->>> repr(1.0/7.0)
-'0.14285714285714285'
->>> x = 10 * 3.25
->>> y = 200 * 200
->>> s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
->>> print s
-The value of x is 32.5, and y is 40000...
+%\begin{frame}[containsverbatim]{Input and Output}
+%Fancier Output Formatting
+%\begin{python}
+%>>> s = 'Hello, world.'
+%>>> str(s)
+%'Hello, world.'
+%>>> repr(s)
+%"'Hello, world.'"
+%>>> str(1.0/7.0)
+%'0.142857142857'
+%>>> repr(1.0/7.0)
+%'0.14285714285714285'
+%>>> x = 10 * 3.25
+%>>> y = 200 * 200
+%>>> s = 'The value of x is ' + repr(x) + ', and y is ' + repr(y) + '...'
+%>>> print s
+%The value of x is 32.5, and y is 40000...
+%
+%\end{python}
+%\end{frame}
 
-\end{python}
-\end{frame}
-
+\section{File I/O}
 \begin{frame}[containsverbatim]{Reading and Writing Files}
 \begin{python}
 >>> f = open('workfile', 'w')
@@ -739,6 +740,7 @@ True
 \end{python}
 \end{frame}
 
+\section{Python to JSON}
 \begin{frame}[containsverbatim]{Saving structured data with json}
 \begin{python}
 >>> json.dumps([1, 'simple', 'list'])
@@ -748,9 +750,10 @@ x = json.load(f)
 \end{python}
 \end{frame}
 
+\section{Errors and Exceptions}
 
+\subsection{Syntax Errors}
 \begin{frame}[containsverbatim]{Errors and Exceptions}
-Syntax Errors
 \begin{python}
 >>> while True print 'Hello world'
   File "<stdin>", line 1, in ?
@@ -760,9 +763,8 @@ SyntaxError: invalid syntax
 \end{python}
 \end{frame}
 
-
+\subsection{Exceptions}
 \begin{frame}[containsverbatim]{Errors and Exceptions}
-Exceptions
 \begin{python}
 >>> 10 * (1/0)
 Traceback (most recent call last):
@@ -779,9 +781,10 @@ TypeError: cannot concatenate 'str' and 'int' objects
 \end{python}
 \end{frame}
 
+\section{Classes}
+\subsection{Class Definition Syntax}
 \begin{frame}[containsverbatim]{Classes}
 \begin{python}
-Class Definition Syntax
 class ClassName:
     <statement-1>
     .
@@ -791,6 +794,7 @@ class ClassName:
 \end{python}
 \end{frame}
 
+\subsection{methods}
 \begin{frame}[containsverbatim]{Classes}
 Class Objects
 \begin{python}
