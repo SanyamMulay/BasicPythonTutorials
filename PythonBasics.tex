@@ -244,10 +244,11 @@ C:\some\name
 \end{python}
 \end{frame}
 
+\section{Python Lists}
 
+\subsection{List definition, slicing}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
-Lists
 >>> squares = [1, 4, 9, 16, 25]
 >>> squares
 [1, 4, 9, 16, 25]
@@ -264,8 +265,9 @@ Lists
 \end{python}
 \end{frame}
 
-
+\subsection{List modification - append values}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
+Lists are mutable
 \begin{python}
 >>> cubes = [1, 8, 27, 65, 125]  # something's wrong here
 >>> 4 ** 3  # the cube of 4 is 64, not 65!
@@ -280,7 +282,7 @@ Lists
 \end{python}
 \end{frame}
 
-
+\subsection{List modification - replacing, removing}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
 >>> letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
@@ -300,12 +302,12 @@ Lists
 []
 \end{python}
 \end{frame}
->>> letters = ['a', 'b', 'c', 'd']
->>> len(letters)
-4
 
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
+>>> letters = ['a', 'b', 'c', 'd']
+>>> len(letters)
+4
 >>> a = ['a', 'b', 'c']
 >>> n = [1, 2, 3]
 >>> x = [a, n]
@@ -318,6 +320,8 @@ Lists
 \end{python}
 \end{frame}
 
+\section{Python Control Flow Tools}
+\subsection{Assignment, while loop}
 \begin{frame}[containsverbatim]{First Steps Towards Programming}
 \begin{python}
 >>> # Fibonacci series:
@@ -348,9 +352,8 @@ Lists
 \end{python}
 \end{frame}
 
-
+\subsection{if, else, elif}
 \begin{frame}[containsverbatim]{More Control Flow Tools}
-if Statements
 \begin{python}
 >>> x = int(raw_input("Please enter an integer: "))
 Please enter an integer: 42
@@ -368,9 +371,9 @@ More
 \end{python}
 \end{frame}
 
-
+\subsection{For loop}
 \begin{frame}[containsverbatim]{More Control Flow Tools}
-for Statements
+Python for loops are a little different from Java and C
 \begin{python}
 >>> # Measure some strings:
 ... words = ['cat', 'window', 'defenestrate']
@@ -383,9 +386,8 @@ defenestrate 12
 \end{python}
 \end{frame}
 
-
+\subsection{The range() Function}
 \begin{frame}[containsverbatim]{More Control Flow Tools}
-The range() Function
 \begin{python}
 >>> range(10)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -413,9 +415,8 @@ The range() Function
 \end{python}
 \end{frame}
 
-
+\subsection{break and continue, and else Clauses on Loops}
 \begin{frame}[containsverbatim]{More Control Flow Tools}
-break and continue Statements, and else Clauses on Loops
 \begin{python}
 >>> for n in range(2, 10):
 ...    for x in range(2, n):
