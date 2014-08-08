@@ -80,6 +80,9 @@ class MyClass(Yourclass):
         print bla
 \end{python}
 }
+
+\section{Intro to Python}
+\subsection{Invoking Python}
 % preparing the slide
 \begin{frame}[containsverbatim]{The Python Interpreter}
 	\begin{flushleft}
@@ -112,10 +115,9 @@ class MyClass(Yourclass):
 %        bla bla bla...
 %\end{python}
 %\end{frame}
-
+\subsection{Comments in Python}
 \begin{frame}[containsverbatim]{An Informal Introduction to Python}
 \begin{python}
-Comments in python
 # this is the first comment
 spam = 1  # and this is the second comment
           # ... and now a third!
@@ -123,9 +125,9 @@ text = "# This is not a comment because it's inside quotes."
 \end{python}
 \end{frame}
 
+\subsection{Numbers in Python}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
-Numbers
 >>> 2 + 2
 4
 >>> 50 - 5*6
@@ -139,6 +141,7 @@ Numbers
 
 
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
+Python is strictly typed
 \begin{python}
 >>> 17 / 3  # int / int -> int
 5
@@ -163,7 +166,7 @@ Numbers
 \end{python}
 \end{frame}
 
-
+\subsection{Variables in Python} 
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
 >>> tax = 12.5 / 100
@@ -177,10 +180,10 @@ Numbers
 \end{python}
 \end{frame}
 
-
+\subsection{Strings in Python}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
+Python strings are immutable
 \begin{python}
-Strings
 >>> 'spam eggs'  # single quotes
 'spam eggs'
 >>> 'doesn\'t'  # use \' to escape the single quote...
@@ -196,7 +199,7 @@ Strings
 \end{python}
 \end{frame}
 
-
+\subsection{The print statement}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
 >>> print 'C:\some\name'  # here \n means newline!
@@ -207,7 +210,7 @@ C:\some\name
 \end{python}
 \end{frame}
 
-
+\section{Python string manipulation}
 \begin{frame}[containsverbatim]{Using Python as a Calculator}
 \begin{python}
 >>> # 3 times 'un', followed by 'ium'
