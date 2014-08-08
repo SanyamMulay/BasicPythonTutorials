@@ -22,6 +22,7 @@
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{8pt} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{8pt}  % for normal
+\DeclareFixedFont{\ttc}{T1}{txtt}{i}{n}{7pt}  % for comments
 
 %custom colours
 \usepackage{color}
@@ -38,6 +39,7 @@ keywordstyle=\ttb\color{deepblue},
 emph={MyClass,__init__},          % Custom highlighting
 emphstyle=\ttb\color{deepred},    % Custom highlighting style
 stringstyle=\color{deepgreen},
+commentstyle=\ttc\color{deepgreen},
 %frame=tb,                         % Any extra options here
 showstringspaces=false            % 
 }}
@@ -415,7 +417,7 @@ defenestrate 12
 \end{python}
 \end{frame}
 
-\subsection{break and continue, and else Clauses on Loops}
+\subsection{break and continue, and else on Loops}
 \begin{frame}[containsverbatim]{More Control Flow Tools}
 \begin{python}
 >>> for n in range(2, 10):
@@ -423,7 +425,7 @@ defenestrate 12
 ...        if n % x == 0:
 ...            print n, 'equals', x, '*', n/x
 ...            break
-...    else:
+...    else: # We don't like this :P
 ...        # loop fell through without finding a factor
 ...        print n, 'is a prime number'
 ...
